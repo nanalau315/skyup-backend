@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    defore_action :authenticate, only: [:show]
+    before_action :authenticate, only: [:show, :update]
 
     def signup
         @user = User.create(username: params[:username], password: params[:password])
@@ -26,13 +26,15 @@ class UsersController < ApplicationController
     end
 
     def update
-        @user = User.find(params[:id])
-        @user.update(params.permit(:username, :password))
-        if @user.valid?
-            render json: @user
-        else
-            render json: {errors: @user.errors.full_messages}
-        end
+        # @user = User.find(params[:id])
+        # @user.update(params.permit(:username, :password))
+        # if @user.valid?
+        #     render json: @user
+        # else
+        #     render json: {errors: @user.errors.full_messages}
+        # end
+        @current_user.update(password: params[:password])
+        render json: @current_user
     end
 
     def destroy
