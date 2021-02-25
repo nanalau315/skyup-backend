@@ -1,3 +1,31 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+    post "/signup", to: "users#signup"
+    post "/login", to: "users#login"
+    # get "/show", to: "user#show"
+    get "/users/:id", to: "users#show"
+    patch "/users/:id", to: "users#update"
+    delete "/users/:id", to: "users#destroy"
+
+    post "/friendships", to: "friendships#create"
+    delete "/friendships/:id", to: "friendships#destroy"
+
+    post "/honks", to: "honks#create"
+    delete "honks/:id", to: "honks#destroy"
+
+    get "/posts", to: "posts#index"
+    get "/posts/:id", to: "posts#show"
+    post "/posts", to: "posts#create"
+    patch "/posts/:id", to: "posts#update"
+    delete "/posts/:id", to: "posts#destroy"
+
+    post "/comments", to: "comment#create"
+    patch "/comments/:id", to: "comment#update"
+    delete "/comments/:id", to: "comment#destroy"
+
+
+
+
+
+
 end
