@@ -1,0 +1,2 @@
+class HonksController < ApplicationController
+end
