@@ -1,12 +1,8 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :posts
+  attributes :id, :username
   
   has_many :posts
   has_many :honks
+  has_many :comments
 
-  # def posts
-  #   self.object.posts.order(:id).map do |post|
-  #     {id: post.id, user_id: post.user_id, content: post.content}
-  #   end
-  end
 end
