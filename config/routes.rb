@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     delete "/friendships/:id", to: "friendships#destroy"
 
     post "/honks", to: "honks#create"
-    delete "honks/:id", to: "honks#destroy"
+    # delete "honks/:id", to: "honks#destroy"
 
     get "/posts", to: "posts#index"
     get "/posts/:id", to: "posts#show"

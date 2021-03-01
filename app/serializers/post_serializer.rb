@@ -1,5 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :content, :user_id, :author
+  attributes :id, :content, :user_id, :author, :created_time
   
   belongs_to :user
   has_many :honks
