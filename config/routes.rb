@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
     post "/signup", to: "users#signup"
     post "/login", to: "users#login"
+    get "/users", to: "users#index"
     get "/users/:id", to: "users#show"
     patch "/users/:id", to: "users#update"
     delete "/users/:id", to: "users#destroy"
@@ -21,10 +22,5 @@ Rails.application.routes.draw do
     post "/comments", to: "comments#create"
     patch "/comments/:id", to: "comments#update"
     delete "/comments/:id", to: "comments#destroy"
-
-
-
-
-
 
 end

@@ -3,4 +3,7 @@ class Friendship < ApplicationRecord
     belongs_to :followee, class_name: "User"
 
     validates :follower, uniqueness: {scope: :followee}
+
+    # Followee is who you are following
+    # Follower are those following you
 end
