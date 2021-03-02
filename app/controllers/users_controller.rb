@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authenticate, only: [:update]
+    before_action :authenticate, only: [:show, :update]
     # need to add :show back for auth to work
 
     def signup
@@ -29,8 +29,10 @@ class UsersController < ApplicationController
 
     def show
         # uncomment the next line for real auth
-        # render json: @current_user
-        render json: User.find(2)
+        render json: @current_user
+        # @user = User.find(:id)
+        # render json: @user
+        # render json: User.find(1)
     end
 
     def update
