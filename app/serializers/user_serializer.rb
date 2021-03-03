@@ -6,8 +6,7 @@ class UserSerializer < ActiveModel::Serializer
   has_many :comments
   has_many :followees
   has_many :followers
-  # has_many :following_users
-  # has_many :followed_users 
-  # the above two get me the joiner table info, which is not what I want
+  has_many :following_users
+  has_many :followed_users
 
 end

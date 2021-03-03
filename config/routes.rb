@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     post "/signup", to: "users#signup"
     post "/login", to: "users#login"
     get "/users", to: "users#index"
+    get "/users/find/:id", to: "users#find_user"
     get "/users/:id", to: "users#show"
     patch "/users/:id", to: "users#update"
     delete "/users/:id", to: "users#destroy"
