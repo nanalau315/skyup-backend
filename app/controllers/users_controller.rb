@@ -28,17 +28,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        if @current_user
-            render json: @current_user
+        render json: @current_user
 
-        else 
-            @user = User.find(params[:id])
-            render json: @user
-        end
-
-        # uncomment the next line for real auth
-        # byebug
-        # render json: User.find(1)
     end
 
     def find_user

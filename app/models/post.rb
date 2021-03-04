@@ -3,10 +3,27 @@ class Post < ApplicationRecord
     has_many :honks, dependent: :destroy
     has_many :comments, dependent: :destroy
 
+    has_one_attached :post_image
+
     def author
         self.user.username
     end
 
+    validate :acceptable_image
+    
+    def acceptable_image
+        return unless post_image.attached?
+      
+        unless post_image.byte_size <= 1.megabyte
+          post_image.errors.add("Image is too big")
+        end
+      
+        acceptable_types = ["image/jpeg", "image/png", "image/jpg"]
+        unless acceptable_types.include?(post_image.content_type)
+          post_image.errors.add("Image must be a JPEG or PNG")
+        end
+    end
+    
     def created_time
         if (Time.now.to_i - self.created_at.to_i) <= 60
             "few seconds"

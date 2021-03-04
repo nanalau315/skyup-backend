@@ -1,5 +1,8 @@
 require "active_support/core_ext/integer/time"
 
+# the following line for the routes is for it to make url path for artice storage img to start with localhost:3001, VERY IMPORTANT!
+Rails.application.routes.default_url_options[:host] = 'localhost:3001'
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -64,3 +67,4 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 end
+
