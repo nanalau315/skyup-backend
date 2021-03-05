@@ -21,7 +21,7 @@ class User < ApplicationRecord
     def acceptable_image
         return unless user_image.attached?
       
-        unless user_image.byte_size <= 1.megabyte
+        unless user_image.byte_size <= 5.megabyte
             user_image.errors.add("Image is too big")
         end
       
