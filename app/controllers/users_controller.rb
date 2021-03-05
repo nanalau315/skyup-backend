@@ -6,6 +6,9 @@ class UsersController < ApplicationController
         @user = User.create(username: params[:username], password: params[:password])
         if @user.valid?
             token = JWT.encode({user_id: @user.id}, "5KyuPy0uR5ky6yn4n414u", "HS256")
+            if params[:user_image] != "null"
+                @user.user_image.attach(params[:user_image])
+            end
             render json: {user: UserSerializer.new(@user), token: token}
         else
             render json: {errors: @user.errors.full_messages.sort.reverse}, status: :unauthorized
@@ -38,14 +41,15 @@ class UsersController < ApplicationController
     end
 
     def update
-        # @user = User.find(params[:id])
-        # @user.update(params.permit(:username, :password))
-        # if @user.valid?
-        #     render json: @user
-        # else
-        #     render json: {errors: @user.errors.full_messages}
-        # end
-        @current_user.update(password: params[:password])
+        @current_user.update(username: params[:username], password: params[:password])
+            if params[:user_image] != "null"
+                if @current_user.user_image.attached?
+                    @current_user.user_image.purge
+                    @current_user.user_image.attach(params[:user_image])
+                else
+                    @current_user.user_image.attach(params[:user_image])
+                end 
+            end
         render json: @current_user
     end
 

@@ -15,12 +15,13 @@ class Post < ApplicationRecord
         return unless post_image.attached?
       
         unless post_image.byte_size <= 1.megabyte
-          post_image.errors.add("Image is too big")
+            post_image.errors.add("Image is too big")
         end
       
         acceptable_types = ["image/jpeg", "image/png", "image/jpg"]
+        
         unless acceptable_types.include?(post_image.content_type)
-          post_image.errors.add("Image must be a JPEG or PNG")
+            post_image.errors.add("Image must be a JPEG or PNG")
         end
     end
     

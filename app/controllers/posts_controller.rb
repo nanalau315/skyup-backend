@@ -13,13 +13,18 @@ class PostsController < ApplicationController
     def create
         @post = Post.create!(user_id: params[:user_id], content: params[:content])
             if params[:post_image] != "null"
-                if @post.post_image.errors
-                    render json: {errors: @user.errors.full_messages}
-                else
-                    @post.post_image.attach(params[:post_image])
-                end
+                @post.post_image.attach(params[:post_image])
             end
         render json: @post
+        # @post = Post.create!(user_id: params[:user_id], content: params[:content])
+        #     if params[:post_image] != "null"
+        #         if @post.post_image.errors
+        #             render json: {errors: @user.errors.full_messages}
+        #         else
+        #             @post.post_image.attach(params[:post_image])
+        #         end
+        #     end
+        # render json: @post
     end
 
     def update
