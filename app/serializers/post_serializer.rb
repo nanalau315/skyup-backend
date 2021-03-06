@@ -7,6 +7,7 @@ class PostSerializer < ActiveModel::Serializer
   belongs_to :user
   has_many :honks
   has_many :comments
+  has_many :postreports
   
   def image_url
       polymorphic_url(object.post_image) if object.post_image.attached?

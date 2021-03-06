@@ -2,6 +2,7 @@ class Post < ApplicationRecord
     belongs_to :user
     has_many :honks, dependent: :destroy
     has_many :comments, dependent: :destroy
+    has_many :postreports, dependent: :destroy
 
     has_one_attached :post_image
 

@@ -2,6 +2,8 @@ class User < ApplicationRecord
     has_many :posts, dependent: :destroy
     has_many :honks, dependent: :destroy
     has_many :comments, dependent: :destroy
+    has_many :postreports, dependent: :destroy
+    has_many :commentreports, dependent: :destroy
     has_many :followed_users, foreign_key: :follower_id, class_name: "Friendship", dependent: :destroy
     has_many :followees, through: :followed_users, dependent: :destroy
     has_many :following_users, foreign_key: :followee_id, class_name: "Friendship", dependent: :destroy

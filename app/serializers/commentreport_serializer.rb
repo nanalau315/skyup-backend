@@ -1,3 +1,5 @@
 class CommentreportSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :reason
+
+  belongs_to :comment
 end

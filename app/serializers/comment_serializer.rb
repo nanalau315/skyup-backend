@@ -5,6 +5,7 @@ class CommentSerializer < ActiveModel::Serializer
   
   belongs_to :user
   belongs_to :post
+  has_many :commentreports
 
   def author_image_url
     polymorphic_url(object.user.user_image) if object.user.user_image.attached?
