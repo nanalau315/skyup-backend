@@ -1,0 +1,2 @@
+class PostreportsController < ApplicationController
+end

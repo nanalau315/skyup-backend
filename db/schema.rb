@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_014636) do
+ActiveRecord::Schema.define(version: 2021_03_05_233017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 2021_03_04_014636) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "commentreports", force: :cascade do |t|
+    t.integer "comment_id"
+    t.integer "user_id"
+    t.string "reason"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.integer "post_id"
     t.integer "user_id"
@@ -61,6 +69,14 @@ ActiveRecord::Schema.define(version: 2021_03_04_014636) do
   create_table "honks", force: :cascade do |t|
     t.integer "post_id"
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "postreports", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.string "reason"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,2 @@
+class Postreport < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class Commentreport < ApplicationRecord
+end
