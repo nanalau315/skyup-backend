@@ -1,6 +1,6 @@
 require "active_support/core_ext/integer/time"
 
-# the following line for the routes is for it to make url path for artice storage img to start with localhost:3001, VERY IMPORTANT!
+# the following line for the routes is for it to make url path for artive storage img to start with localhost:3001, VERY IMPORTANT!
 Rails.application.routes.default_url_options[:host] = 'localhost:3001'
 
 Rails.application.configure do
